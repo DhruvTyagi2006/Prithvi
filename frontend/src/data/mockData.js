@@ -1,0 +1,200 @@
+// Mock data standing in for the FastAPI backend + ML prediction service.
+// Shapes mirror the PRD's Prediction API response and database entities so
+// swapping in real fetch() calls later is a drop-in replacement.
+
+export const RISK_LEVELS = {
+  LOW: { key: 'LOW', label: 'Low', color: '#7FA37A', bg: '#EAF3E8', floor: 0 },
+  MODERATE: { key: 'MODERATE', label: 'Moderate', color: '#C9A227', bg: '#FBF4DE', floor: 30 },
+  HIGH: { key: 'HIGH', label: 'High', color: '#D97F3F', bg: '#FBEADD', floor: 60 },
+  CRITICAL: { key: 'CRITICAL', label: 'Critical', color: '#B94A43', bg: '#F8E3E1', floor: 80 },
+};
+
+export function classifyRisk(probabilityPercent) {
+  if (probabilityPercent >= 80) return RISK_LEVELS.CRITICAL;
+  if (probabilityPercent >= 60) return RISK_LEVELS.HIGH;
+  if (probabilityPercent >= 30) return RISK_LEVELS.MODERATE;
+  return RISK_LEVELS.LOW;
+}
+
+// Villages / wards in a fictionalized hilly Uttarakhand district, used as
+// hyper-local prediction targets (G3 in the PRD).
+export const LOCATIONS = [
+  {
+    id: 'loc-001',
+    name: 'Kaudiyala',
+    district: 'Tehri Garhwal',
+    state: 'Uttarakhand',
+    population: 1420,
+    lat: 30.221,
+    lng: 78.478,
+    elevation: 1180,
+    slope: 34,
+    soilType: 'Sandy loam',
+    floodProbability: 0.82,
+    landslideProbability: 0.76,
+    rainfall1h: 42,
+    rainfall24h: 210,
+    soilMoisture: 83,
+    leadTimeMinutes: 90,
+    lastUpdated: '2026-08-25T11:42:00+05:30',
+    nearestShelter: 'shelter-001',
+  },
+  {
+    id: 'loc-002',
+    name: 'Devprayag Ridge',
+    district: 'Tehri Garhwal',
+    state: 'Uttarakhand',
+    population: 860,
+    lat: 30.146,
+    lng: 78.598,
+    elevation: 830,
+    slope: 21,
+    soilType: 'Clay loam',
+    floodProbability: 0.54,
+    landslideProbability: 0.31,
+    rainfall1h: 18,
+    rainfall24h: 96,
+    soilMoisture: 58,
+    leadTimeMinutes: 180,
+    lastUpdated: '2026-08-25T11:40:00+05:30',
+    nearestShelter: 'shelter-002',
+  },
+  {
+    id: 'loc-003',
+    name: 'Ukhimath',
+    district: 'Rudraprayag',
+    state: 'Uttarakhand',
+    population: 2210,
+    lat: 30.502,
+    lng: 79.100,
+    elevation: 1300,
+    slope: 12,
+    soilType: 'Silty loam',
+    floodProbability: 0.12,
+    landslideProbability: 0.08,
+    rainfall1h: 3,
+    rainfall24h: 22,
+    soilMoisture: 34,
+    leadTimeMinutes: null,
+    lastUpdated: '2026-08-25T11:41:00+05:30',
+    nearestShelter: 'shelter-003',
+  },
+  {
+    id: 'loc-004',
+    name: 'Guptkashi Basin',
+    district: 'Rudraprayag',
+    state: 'Uttarakhand',
+    population: 1580,
+    lat: 30.531,
+    lng: 79.078,
+    elevation: 1319,
+    slope: 27,
+    soilType: 'Sandy clay',
+    floodProbability: 0.65,
+    landslideProbability: 0.58,
+    rainfall1h: 26,
+    rainfall24h: 140,
+    soilMoisture: 71,
+    leadTimeMinutes: 150,
+    lastUpdated: '2026-08-25T11:39:00+05:30',
+    nearestShelter: 'shelter-003',
+  },
+  {
+    id: 'loc-005',
+    name: 'Chamoli Lower Slopes',
+    district: 'Chamoli',
+    state: 'Uttarakhand',
+    population: 990,
+    lat: 30.408,
+    lng: 79.322,
+    elevation: 1420,
+    slope: 38,
+    soilType: 'Sandy loam',
+    floodProbability: 0.29,
+    landslideProbability: 0.44,
+    rainfall1h: 14,
+    rainfall24h: 78,
+    soilMoisture: 49,
+    leadTimeMinutes: 240,
+    lastUpdated: '2026-08-25T11:38:00+05:30',
+    nearestShelter: 'shelter-004',
+  },
+  {
+    id: 'loc-006',
+    name: 'Joshimath Approach',
+    district: 'Chamoli',
+    state: 'Uttarakhand',
+    population: 1760,
+    lat: 30.556,
+    lng: 79.564,
+    elevation: 1875,
+    slope: 41,
+    soilType: 'Loose colluvium',
+    floodProbability: 0.38,
+    landslideProbability: 0.69,
+    rainfall1h: 20,
+    rainfall24h: 112,
+    soilMoisture: 66,
+    leadTimeMinutes: 110,
+    lastUpdated: '2026-08-25T11:37:00+05:30',
+    nearestShelter: 'shelter-004',
+  },
+];
+
+export const SHELTERS = [
+  { id: 'shelter-001', name: 'Kaudiyala Community Hall', lat: 30.226, lng: 78.481, capacity: 300, distanceKm: 2.1 },
+  { id: 'shelter-002', name: 'Devprayag Govt. Inter College', lat: 30.150, lng: 78.602, capacity: 450, distanceKm: 1.4 },
+  { id: 'shelter-003', name: 'Ukhimath Panchayat Bhawan', lat: 30.505, lng: 79.104, capacity: 500, distanceKm: 0.9 },
+  { id: 'shelter-004', name: 'Chamoli Relief Center', lat: 30.412, lng: 79.328, capacity: 350, distanceKm: 3.6 },
+];
+
+export const SENSORS = [
+  { id: 'SEN-001', locationId: 'loc-001', type: 'rain-gauge', status: 'ONLINE', rainfall: 42, soilMoisture: 83, slopeMovement: 4.2, lastUpdated: '2026-08-25T11:42:00+05:30' },
+  { id: 'SEN-002', locationId: 'loc-001', type: 'soil-probe', status: 'ONLINE', rainfall: 41, soilMoisture: 85, slopeMovement: 4.8, lastUpdated: '2026-08-25T11:42:00+05:30' },
+  { id: 'SEN-003', locationId: 'loc-004', type: 'slope-extensometer', status: 'WARNING', rainfall: 26, soilMoisture: 71, slopeMovement: 9.1, lastUpdated: '2026-08-25T11:39:00+05:30' },
+  { id: 'SEN-004', locationId: 'loc-006', type: 'rain-gauge', status: 'OFFLINE', rainfall: null, soilMoisture: null, slopeMovement: null, lastUpdated: '2026-08-25T10:12:00+05:30' },
+  { id: 'SEN-005', locationId: 'loc-002', type: 'soil-probe', status: 'ONLINE', rainfall: 18, soilMoisture: 58, slopeMovement: 1.1, lastUpdated: '2026-08-25T11:40:00+05:30' },
+  { id: 'SEN-006', locationId: 'loc-003', type: 'rain-gauge', status: 'ONLINE', rainfall: 3, soilMoisture: 34, slopeMovement: 0.2, lastUpdated: '2026-08-25T11:41:00+05:30' },
+];
+
+export const ALERTS = [
+  {
+    id: 'alert-001',
+    locationId: 'loc-001',
+    level: 'CRITICAL',
+    headline: 'Heavy rainfall and high soil saturation detected.',
+    detail: 'Landslide probability has increased significantly over the last hour.',
+    factors: ['rainfall_1h: 42 mm (rising)', 'soil_moisture: 83% (near saturation)', 'slope: 34° (steep)'],
+    recommendedAction: 'Evacuate vulnerable zones and move toward the nearest designated shelter.',
+    issuedAt: '2026-08-25T11:42:00+05:30',
+  },
+  {
+    id: 'alert-002',
+    locationId: 'loc-004',
+    level: 'HIGH',
+    headline: 'Elevated flood and landslide probability in Guptkashi Basin.',
+    detail: 'Rainfall accumulation over 24h is approaching the high-risk threshold.',
+    factors: ['rainfall_24h: 140 mm', 'soil_moisture: 71%', 'sensor SEN-003 flagged slope movement'],
+    recommendedAction: 'Authorities should prepare evacuation measures for low-lying wards.',
+    issuedAt: '2026-08-25T11:39:00+05:30',
+  },
+  {
+    id: 'alert-003',
+    locationId: 'loc-006',
+    level: 'MODERATE',
+    headline: 'Weather conditions deteriorating near Joshimath Approach.',
+    detail: 'Loose colluvium soil combined with rising rainfall intensity.',
+    factors: ['rainfall_1h: 20 mm', 'soil_type: loose colluvium', 'historical landslide frequency: high'],
+    recommendedAction: 'Monitor updates. No evacuation required at this time.',
+    issuedAt: '2026-08-25T11:20:00+05:30',
+  },
+];
+
+export const PIPELINE_STAGES = [
+  { key: 'sense', label: 'Sense', description: 'Rainfall, soil moisture, terrain and IoT sensor streams enter the pipeline.' },
+  { key: 'analyze', label: 'Analyze', description: 'Feature engineering combines weather, terrain, and historical signals.' },
+  { key: 'predict', label: 'Predict', description: 'Flood and landslide ML models estimate probability of an event.' },
+  { key: 'localize', label: 'Localize', description: 'Predictions are mapped to a specific village, ward, or sensor cluster.' },
+  { key: 'warn', label: 'Warn', description: 'Risk is classified and an explainable alert is generated.' },
+  { key: 'act', label: 'Act', description: 'Residents receive a recommended action and nearest shelter.' },
+];
