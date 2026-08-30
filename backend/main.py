@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_settings
 from backend.database.connection import init_db
-from backend.routers import health, locations, placeholders, shelters
+from backend.routers import health, locations, placeholders, shelters, risk, simulation
 
 settings = get_settings()
 
@@ -32,11 +32,10 @@ app.add_middleware(
 )
 
 
-# Core endpoints owned by this module.
 app.include_router(health.router)
 app.include_router(locations.router)
 app.include_router(shelters.router)
+app.include_router(risk.router)
+app.include_router(simulation.router)
 
-# Contract-only placeholders for Developer 2 (ML) and Developer 3 (IoT/risk/
-# alerts) — see routers/placeholders.py for how to replace these.
 app.include_router(placeholders.router)
