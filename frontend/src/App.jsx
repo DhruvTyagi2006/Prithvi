@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import RiskMap from './pages/RiskMap';
@@ -24,7 +23,6 @@ function App() {
           <Route path="/simulation" element={<Simulation />} />
         </Routes>
       </main>
-      <Footer />
     </div>
   );
 }
