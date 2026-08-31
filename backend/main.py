@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_settings
 from backend.database.connection import init_db
-from backend.routers import health, locations, placeholders, shelters, risk, simulation
+from backend.routers import health, locations, predict, sensors, shelters, risk, simulation
 
 settings = get_settings()
 
@@ -37,5 +37,5 @@ app.include_router(locations.router)
 app.include_router(shelters.router)
 app.include_router(risk.router)
 app.include_router(simulation.router)
-
-app.include_router(placeholders.router)
+app.include_router(predict.router)
+app.include_router(sensors.router)

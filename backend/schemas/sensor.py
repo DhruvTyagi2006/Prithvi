@@ -33,3 +33,6 @@ class SensorOut(SensorBase):
     last_updated: datetime
 
     model_config = ConfigDict(from_attributes=True)
+class SensorListResponse(BaseModel):
+    sensors: list[SensorOut]
+    total: int
