@@ -14,7 +14,7 @@ function Slider({ label, unit, value, min, max, onChange, accent }) {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <label className="text-sm font-medium text-fern">{label}</label>
+        <label className="text-sm font-medium text-[#163A5F]">{label}</label>
         <span className="font-mono text-sm text-ink/60">
           {value} {unit}
         </span>
@@ -104,7 +104,7 @@ export default function Simulation() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss-deep">Simulation</p>
-      <h1 className="mt-1 font-display text-3xl text-fern">
+      <h1 className="mt-1 font-display text-3xl text-[#163A5F]">
         Simulate a disaster scenario
       </h1>
       <p className="mt-2 max-w-2xl text-sm text-ink/60">
@@ -117,14 +117,14 @@ export default function Simulation() {
           <button
             key={key}
             onClick={() => applyPreset(key)}
-            className="rounded-full border border-fern/20 px-4 py-1.5 text-xs font-medium text-fern transition-colors hover:bg-fern/5"
+            className="rounded-full border border-[#163A5F]/20 px-4 py-1.5 text-xs font-medium text-[#163A5F] transition-colors hover:bg-[#163A5F]/5"
           >
             {p.label}
           </button>
         ))}
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-8 rounded-2xl border border-fern/10 bg-white p-7 shadow-sm md:grid-cols-2">
+      <div className="mt-6 grid grid-cols-1 gap-8 rounded-2xl border border-[#163A5F]/10 bg-white p-7 shadow-sm md:grid-cols-2">
         <div className="space-y-7">
           <Slider label="Rainfall" unit="mm/h" value={rainfall} min={0} max={80} onChange={setRainfall} accent="#6fb3c2" />
           <Slider label="Soil Moisture" unit="%" value={soilMoisture} min={0} max={100} onChange={setSoilMoisture} accent="#7fa37a" />
@@ -133,7 +133,7 @@ export default function Simulation() {
           <button
             onClick={handleRun}
             disabled={running}
-            className="w-full rounded-full bg-fern px-6 py-3 text-sm font-semibold text-mist transition-transform hover:scale-[1.02] disabled:opacity-60"
+            className="w-full rounded-full bg-[#163A5F] px-6 py-3 text-sm font-semibold text-mist transition-transform hover:scale-[1.02] disabled:opacity-60"
           >
             {running ? 'Running simulation…' : 'Run simulation'}
           </button>
@@ -142,31 +142,31 @@ export default function Simulation() {
         <div className="flex flex-col justify-center gap-4 rounded-xl bg-mist-deep p-6">
           <div>
             <p className="text-xs text-ink/45">Flood Risk</p>
-            <p className="font-display text-3xl text-fern">{displayFlood}%</p>
+            <p className="font-display text-3xl text-[#163A5F]">{displayFlood}%</p>
           </div>
           <div>
             <p className="text-xs text-ink/45">Landslide Risk</p>
-            <p className="font-display text-3xl text-fern">{displayLandslide}%</p>
+            <p className="font-display text-3xl text-[#163A5F]">{displayLandslide}%</p>
           </div>
           {result && <RiskBadge level={result.overallRisk.key} size="lg" />}
         </div>
       </div>
 
       {result && (
-        <div ref={resultRef} className="mt-6 rounded-2xl border border-fern/10 bg-white p-7 shadow-sm">
+        <div ref={resultRef} className="mt-6 rounded-2xl border border-[#163A5F]/10 bg-white p-7 shadow-sm">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="font-display text-xl text-fern">Prediction result</h2>
+            <h2 className="font-display text-xl text-[#163A5F]">Prediction result</h2>
             <p className="font-mono text-xs text-ink/45">
               Estimated warning window: ~{result.leadTimeMinutes} min
             </p>
           </div>
           <p className="mt-3 text-sm text-ink/70">
-            <span className="font-medium text-fern">Recommended action: </span>
+            <span className="font-medium text-[#163A5F]">Recommended action: </span>
             {result.recommendedAction}
           </p>
           <div className="mt-4 flex items-center justify-between rounded-lg bg-mist-deep px-4 py-3 text-sm">
             <span className="text-ink/60">Nearest shelter</span>
-            <span className="font-medium text-fern">
+            <span className="font-medium text-[#163A5F]">
               {nearestShelter.name} &middot; {nearestShelter.distanceKm} km
             </span>
           </div>

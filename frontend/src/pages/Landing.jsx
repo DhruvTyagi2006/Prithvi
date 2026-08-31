@@ -101,6 +101,8 @@ export default function Landing() {
           zoom-out and text fade. It releases into normal flow afterward. */}
       <section ref={trackRef} className="relative" style={{ height: '260vh' }}>
         <div className="sticky top-0 h-screen w-full overflow-hidden bg-void">
+        <div className="absolute left-0 top-0 z-[5] h-full w-1/4 cursor-ns-resize"></div>
+          <div className="absolute right-0 top-0 z-[5] h-full w-1/4 cursor-ns-resize"></div>
           <Globe
             className="absolute inset-0 z-0 h-full w-full"
             zoomProgressRef={zoomProgressRef}
@@ -154,7 +156,7 @@ export default function Landing() {
       </section>
 
       {/* STATS STRIP */}
-      <section className="stats-strip border-y border-fern/10 bg-mist-deep">
+      <section className="stats-strip border-y border-[#163A5F]/10 bg-mist-deep">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4">
           {[
             { value: `${LOCATIONS.length}`, label: 'Villages monitored (pilot)' },
@@ -163,7 +165,7 @@ export default function Landing() {
             { value: '24/7', label: 'Simulated sensor stream' },
           ].map((s) => (
             <div key={s.label} className="stat-item">
-              <p className="font-display text-3xl text-fern">{s.value}</p>
+              <p className="font-display text-3xl text-[#163A5F]">{s.value}</p>
               <p className="mt-1 text-xs text-ink/55">{s.label}</p>
             </div>
           ))}
@@ -176,7 +178,7 @@ export default function Landing() {
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-moss-deep">
             The pipeline
           </p>
-          <h2 className="mt-3 font-display text-3xl text-fern sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl text-[#163A5F] sm:text-4xl">
             Sense &rarr; Analyze &rarr; Predict &rarr; Localize &rarr; Warn &rarr; Act
           </h2>
           <p className="mt-4 text-ink/65">
@@ -189,12 +191,12 @@ export default function Landing() {
           {PIPELINE_STAGES.map((stage, i) => (
             <li
               key={stage.key}
-              className="stage-card rounded-2xl border border-fern/10 bg-white/60 p-6 shadow-sm"
+              className="stage-card rounded-2xl border border-[#163A5F]/10 bg-white/60 p-6 shadow-sm"
             >
               <span className="font-mono text-xs text-moss-deep">
                 0{i + 1}
               </span>
-              <h3 className="mt-2 font-display text-xl text-fern">{stage.label}</h3>
+              <h3 className="mt-2 font-display text-xl text-[#163A5F]">{stage.label}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink/60">{stage.description}</p>
             </li>
           ))}
@@ -202,7 +204,7 @@ export default function Landing() {
       </section>
 
       {/* CLOSING CTA */}
-      <section className="bg-fern text-mist">
+      <section className="bg-[#163A5F] text-mist">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-16 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-display text-3xl sm:text-4xl">
@@ -215,7 +217,7 @@ export default function Landing() {
           </div>
           <Link
             to="/simulation"
-            className="shrink-0 rounded-full bg-mist px-6 py-3 text-sm font-semibold text-fern transition-transform hover:scale-105"
+            className="shrink-0 rounded-full bg-mist px-6 py-3 text-sm font-semibold text-[#163A5F] transition-transform hover:scale-105"
           >
             Try the simulation
           </Link>

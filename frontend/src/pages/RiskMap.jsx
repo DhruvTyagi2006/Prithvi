@@ -44,14 +44,14 @@ export default function RiskMap() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-8">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss-deep">Risk Map</p>
-      <h1 className="mt-1 font-display text-3xl text-fern">Hyper-local risk visualization</h1>
+      <h1 className="mt-1 font-display text-3xl text-[#163A5F]">Hyper-local risk visualization</h1>
       <p className="mt-2 max-w-2xl text-sm text-ink/60">
         Villages are colored by current overall risk. Select a marker to see its full
         prediction, environmental readings, and nearest shelter.
       </p>
 
       <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-[1fr_360px]">
-        <div className="h-[560px] overflow-hidden rounded-2xl border border-fern/10 shadow-sm">
+        <div className="h-[560px] overflow-hidden rounded-2xl border border-[#163A5F]/10 shadow-sm">
           <MapContainer center={center} zoom={9} className="h-full w-full" scrollWheelZoom>
             <TileLayer
               attribution='&copy; OpenStreetMap contributors'
@@ -100,10 +100,10 @@ export default function RiskMap() {
 
         {/* Detail panel */}
         {selected && (
-          <div ref={panelRef} className="h-fit rounded-2xl border border-fern/10 bg-white p-6 shadow-sm">
+          <div ref={panelRef} className="h-fit rounded-2xl border border-[#163A5F]/10 bg-white p-6 shadow-sm">
             <div className="flex items-start justify-between">
               <div>
-                <h2 className="font-display text-2xl text-fern">{selected.name}</h2>
+                <h2 className="font-display text-2xl text-[#163A5F]">{selected.name}</h2>
                 <p className="text-xs text-ink/45">
                   {selected.district}, {selected.state}
                 </p>
@@ -122,9 +122,9 @@ export default function RiskMap() {
                 ['Slope', `${selected.slope}°`],
                 ['Last Updated', new Date(selected.lastUpdated).toLocaleTimeString('en-IN')],
               ].map(([k, v]) => (
-                <div key={k} className="flex items-center justify-between border-b border-fern/5 pb-2">
+                <div key={k} className="flex items-center justify-between border-b border-[#163A5F]/10 pb-2">
                   <dt className="text-ink/50">{k}</dt>
-                  <dd className="text-fern">{v}</dd>
+                  <dd className="text-[#163A5F]">{v}</dd>
                 </div>
               ))}
             </dl>
@@ -132,13 +132,13 @@ export default function RiskMap() {
             {shelter && (
               <div className="mt-4 rounded-lg bg-mist-deep px-3 py-2.5 text-sm">
                 <p className="text-xs text-ink/45">Nearest Shelter</p>
-                <p className="font-medium text-fern">{shelter.name} &middot; {shelter.distanceKm} km</p>
+                <p className="font-medium text-[#163A5F]">{shelter.name} &middot; {shelter.distanceKm} km</p>
               </div>
             )}
 
             <Link
               to={`/location/${selected.id}`}
-              className="mt-5 block rounded-full bg-fern px-4 py-2.5 text-center text-sm font-semibold text-mist transition-transform hover:scale-105"
+              className="mt-5 block rounded-full bg-[#163A5F] px-4 py-2.5 text-center text-sm font-semibold text-mist transition-transform hover:scale-105"
             >
               Full location details
             </Link>

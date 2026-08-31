@@ -18,7 +18,7 @@ export default function Alerts() {
   return (
     <div ref={ref} className="mx-auto max-w-4xl px-6 py-10">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss-deep">Alerts</p>
-      <h1 className="mt-1 font-display text-3xl text-fern">Current and historical alerts</h1>
+      <h1 className="mt-1 font-display text-3xl text-[#163A5F]">Current and historical alerts</h1>
       <p className="mt-2 max-w-2xl text-sm text-ink/60">
         Every alert explains which factors triggered it and what action is
         recommended &mdash; never just a bare probability (G5 in the PRD).
@@ -45,7 +45,7 @@ export default function Alerts() {
                   View location &rarr;
                 </Link>
               </div>
-              <p className="mt-3 font-display text-lg text-fern">{alert.headline}</p>
+              <p className="mt-3 font-display text-lg text-[#163A5F]">{alert.headline}</p>
               <p className="mt-1 text-sm text-ink/65">{alert.detail}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {alert.factors.map((f) => (
@@ -55,7 +55,7 @@ export default function Alerts() {
                 ))}
               </div>
               <p className="mt-3 text-sm">
-                <span className="font-medium text-fern">Recommended action: </span>
+                <span className="font-medium text-[#163A5F]">Recommended action: </span>
                 <span className="text-ink/70">{alert.recommendedAction}</span>
               </p>
             </div>

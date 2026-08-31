@@ -25,7 +25,7 @@ export default function Sensors() {
   return (
     <div ref={ref} className="mx-auto max-w-7xl px-6 py-10">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss-deep">Sensors</p>
-      <h1 className="mt-1 font-display text-3xl text-fern">Real-time sensor monitoring</h1>
+      <h1 className="mt-1 font-display text-3xl text-[#163A5F]">Real-time sensor monitoring</h1>
       <p className="mt-2 max-w-2xl text-sm text-ink/60">
         Simulated IoT sensor stream: rainfall, soil moisture, and slope movement
         readings feeding the prediction pipeline (G4 in the PRD).
@@ -45,9 +45,9 @@ export default function Sensors() {
           const loc = LOCATIONS.find((l) => l.id === s.locationId);
           const style = STATUS_STYLES[s.status];
           return (
-            <div key={s.id} className="sensor-card rounded-2xl border border-fern/10 bg-white p-6 shadow-sm">
+            <div key={s.id} className="sensor-card rounded-2xl border border-[#163A5F]/10 bg-white p-6 shadow-sm">
               <div className="flex items-center justify-between">
-                <p className="font-mono text-sm font-medium text-fern">{s.id}</p>
+                <p className="font-mono text-sm font-medium text-[#163A5F]">{s.id}</p>
                 <span className={`flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${style.bg} ${style.text}`}>
                   <span className={`h-1.5 w-1.5 rounded-full ${style.dot}`} />
                   {s.status}
@@ -57,17 +57,17 @@ export default function Sensors() {
               <p className="text-xs text-ink/45">{loc?.name}</p>
 
               <dl className="mt-4 space-y-2 font-mono text-sm">
-                <div className="flex justify-between border-b border-fern/5 pb-1.5">
+                <div className="flex justify-between border-b border-[#163A5F]/5 pb-1.5">
                   <dt className="text-ink/50">Rainfall</dt>
-                  <dd className="text-fern">{s.rainfall != null ? `${s.rainfall} mm/h` : '—'}</dd>
+                  <dd className="text-[#163A5F]">{s.rainfall != null ? `${s.rainfall} mm/h` : '—'}</dd>
                 </div>
-                <div className="flex justify-between border-b border-fern/5 pb-1.5">
+                <div className="flex justify-between border-b border-[#163A5F]/5 pb-1.5">
                   <dt className="text-ink/50">Soil Moisture</dt>
-                  <dd className="text-fern">{s.soilMoisture != null ? `${s.soilMoisture}%` : '—'}</dd>
+                  <dd className="text-[#163A5F]">{s.soilMoisture != null ? `${s.soilMoisture}%` : '—'}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-ink/50">Slope Movement</dt>
-                  <dd className="text-fern">{s.slopeMovement != null ? `${s.slopeMovement} mm` : '—'}</dd>
+                  <dd className="text-[#163A5F]">{s.slopeMovement != null ? `${s.slopeMovement} mm` : '—'}</dd>
                 </div>
               </dl>
               <p className="mt-4 text-[11px] text-ink/40">

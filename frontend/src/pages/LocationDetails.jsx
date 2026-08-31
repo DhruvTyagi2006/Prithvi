@@ -32,7 +32,7 @@ export default function LocationDetails() {
 
       <div className="detail-block mt-4 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-display text-4xl text-fern">{location.name}</h1>
+          <h1 className="font-display text-4xl text-[#163A5F]">{location.name}</h1>
           <p className="mt-1 text-sm text-ink/50">
             {location.district}, {location.state} &middot; Population {location.population.toLocaleString('en-IN')}
           </p>
@@ -47,15 +47,15 @@ export default function LocationDetails() {
           ['Lead Time', location.leadTimeMinutes ? `~${location.leadTimeMinutes} min` : '—'],
           ['Elevation', `${location.elevation} m`],
         ].map(([k, v]) => (
-          <div key={k} className="rounded-xl border border-fern/10 bg-white p-4 shadow-sm">
+          <div key={k} className="rounded-xl border border-[#163A5F]/10 bg-white p-4 shadow-sm">
             <p className="text-xs text-ink/45">{k}</p>
-            <p className="mt-1 font-display text-xl text-fern">{v}</p>
+            <p className="mt-1 font-display text-xl text-[#163A5F]">{v}</p>
           </div>
         ))}
       </div>
 
       <div className="detail-block mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
-        <div className="rounded-2xl border border-fern/10 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-[#163A5F]/10 bg-white p-6 shadow-sm">
           <p className="text-xs uppercase tracking-wide text-ink/45">Environmental Conditions</p>
           <dl className="mt-4 space-y-2.5 font-mono text-sm">
             {[
@@ -65,15 +65,15 @@ export default function LocationDetails() {
               ['Soil Type', location.soilType],
               ['Slope', `${location.slope}°`],
             ].map(([k, v]) => (
-              <div key={k} className="flex items-center justify-between border-b border-fern/5 pb-2">
+              <div key={k} className="flex items-center justify-between border-b border-[#163A5F]/5 pb-2">
                 <dt className="text-ink/50">{k}</dt>
-                <dd className="text-fern">{v}</dd>
+                <dd className="text-[#163A5F]">{v}</dd>
               </div>
             ))}
           </dl>
         </div>
 
-        <div className="rounded-2xl border border-fern/10 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-[#163A5F]/10 bg-white p-6 shadow-sm">
           <p className="text-xs uppercase tracking-wide text-ink/45">Sensors at this location</p>
           <ul className="mt-4 space-y-3">
             {sensors.length === 0 && <li className="text-sm text-ink/45">No sensors registered.</li>}
@@ -98,27 +98,27 @@ export default function LocationDetails() {
       </div>
 
       {alert && (
-        <div className="detail-block mt-6 rounded-2xl border border-fern/10 bg-mist-deep p-6">
+        <div className="detail-block mt-6 rounded-2xl border border-[#163A5F]/10 bg-mist-deep p-6">
           <div className="flex items-center gap-3">
             <RiskBadge level={alert.level} />
-            <p className="font-display text-lg text-fern">{alert.headline}</p>
+            <p className="font-display text-lg text-[#163A5F]">{alert.headline}</p>
           </div>
           <p className="mt-2 text-sm text-ink/70">
-            Recommended action: <span className="font-medium text-fern">{alert.recommendedAction}</span>
+            Recommended action: <span className="font-medium text-[#163A5F]">{alert.recommendedAction}</span>
           </p>
         </div>
       )}
 
       {shelter && (
-        <div className="detail-block mt-6 flex items-center justify-between rounded-2xl border border-fern/10 bg-white p-6 shadow-sm">
+        <div className="detail-block mt-6 flex items-center justify-between rounded-2xl border border-[#163A5F]/10 bg-white p-6 shadow-sm">
           <div>
             <p className="text-xs uppercase tracking-wide text-ink/45">Nearest Shelter</p>
-            <p className="mt-1 font-display text-xl text-fern">{shelter.name}</p>
+            <p className="mt-1 font-display text-xl text-[#163A5F]">{shelter.name}</p>
             <p className="text-sm text-ink/55">{shelter.distanceKm} km away &middot; capacity {shelter.capacity}</p>
           </div>
           <Link
             to={`/map?location=${location.id}`}
-            className="rounded-full bg-fern px-5 py-2.5 text-sm font-semibold text-mist transition-transform hover:scale-105"
+            className="rounded-full bg-[#163A5F] px-5 py-2.5 text-sm font-semibold text-mist transition-transform hover:scale-105"
           >
             View route on map
           </Link>

@@ -14,7 +14,7 @@
 
   --color-moss: #7fa37a;         /* soft sage green, primary */
   --color-moss-deep: #5c8259;
-  --color-fern: #3d5c43;         /* deep green for text on light bg */
+  --color-[#163A5F]: #3d5c43;         /* deep green for text on light bg */
 
   --color-glacier: #afd8e0;      /* light glacial blue, secondary */
   --color-glacier-deep: #6fb3c2;
@@ -47,7 +47,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-moss);
+  background: #163A5F; 
   color: var(--color-mist);
 }
 
@@ -58,7 +58,7 @@ body {
   background: var(--color-mist-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-moss);
+  background: #163A5F;
   border-radius: 999px;
   border: 2px solid var(--color-mist-deep);
 }

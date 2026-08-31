@@ -16,8 +16,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-40 border-b backdrop-blur-md ${
         onLanding
-          ? 'border-electric/10 bg-abyss/60'
-          : 'border-fern/10 bg-mist/85'
+          ? 'border-electric/10 bg-abyss/25'
+          : 'border-[#163A5F]/10 bg-mist/85'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
@@ -34,7 +34,7 @@ export default function Navbar() {
           </svg>
           <span
             className={`font-display text-lg tracking-tight ${
-              onLanding ? 'text-mist' : 'text-fern'
+              onLanding ? 'text-mist' : 'text-[#163A5F  ]'
             }`}
           >
             Prithvi
@@ -51,10 +51,10 @@ export default function Navbar() {
                   isActive
                     ? onLanding
                       ? 'bg-electric/20 text-electric'
-                      : 'bg-moss/15 text-fern'
+                      : 'bg-moss/15 text-[#163A5F]'
                     : onLanding
                       ? 'text-mist/70 hover:bg-white/5 hover:text-mist'
-                      : 'text-ink/60 hover:bg-fern/5 hover:text-fern'
+                      : 'text-ink/60 hover:bg-[#163A5F]/5 hover:text-[#163A5F]'
                 }`
               }
             >
@@ -66,7 +66,7 @@ export default function Navbar() {
         <NavLink
           to="/dashboard"
           className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors md:hidden ${
-            onLanding ? 'bg-electric text-void' : 'bg-fern text-mist'
+            onLanding ? 'bg-electric text-void' : 'bg-[#163A5F] text-mist'
           }`}
         >
           Open App
