@@ -1,0 +1,222 @@
+facility_id,name,state,district,latitude,longitude,capacity,facility_type,activation_type,source
+OSM-000001,Khan,Jammu & Kashmir,,33.861847,73.713701,0,social_shelter,existing,OpenStreetMap
+OSM-000005,Mini Township For Kashmiri Migrants (Jagti),Jammu & Kashmir,,32.818149,74.907894,0,social_shelter,existing,OpenStreetMap
+OSM-000006,Mini Township For Kashmiri Migrants (Jagti),Jammu & Kashmir,,32.816966,74.905320,0,social_shelter,existing,OpenStreetMap
+OSM-000007,Qasr E Bhehbood Bhoth Sialkot,Jammu & Kashmir,,32.541674,74.565941,0,social_shelter,existing,OpenStreetMap
+OSM-000008,Unnamed Shelter 001,Kerala,,9.915043,76.764407,0,social_shelter,existing,OpenStreetMap
+OSM-000009,Edayar kaniyaalpadi colony,Kerala,,9.874666,76.555575,0,social_shelter,existing,OpenStreetMap
+OSM-000010,Soukya Sadan,Kerala,,9.870209,76.415693,0,social_shelter,existing,OpenStreetMap
+OSM-000011,Unnamed Shelter 002,Kerala,,10.017417,76.349696,0,social_shelter,existing,OpenStreetMap
+OSM-000012,"Balikabhavan, Pothenpuram",Kerala,,9.555006,76.632316,0,social_shelter,existing,OpenStreetMap
+OSM-000013,Snehabhavan Annexe,Kerala,,9.977585,76.290424,0,social_shelter,existing,OpenStreetMap
+OSM-000014,BLM Retreat Center Aloor,Kerala,,10.341993,76.288227,0,social_shelter,existing,OpenStreetMap
+OSM-000016,Unnamed Shelter 003,Kerala,,9.575471,76.348965,0,social_shelter,existing,OpenStreetMap
+OSM-000017,Sacred Heart Convent,Kerala,,9.425026,76.575408,0,social_shelter,existing,OpenStreetMap
+OSM-000018,Balikamadam,Kerala,,9.369602,76.674374,0,social_shelter,existing,OpenStreetMap
+OSM-000019,Abhaya bhavan,Kerala,,9.401244,76.562358,0,social_shelter,existing,OpenStreetMap
+OSM-000020,Public Works Department Resthouse,Kerala,,9.327762,76.684739,0,social_shelter,existing,OpenStreetMap
+OSM-000021,Snehitha womens shelter,Kerala,,9.492229,76.331190,0,social_shelter,existing,OpenStreetMap
+OSM-000022,Unnamed Shelter 004,Tamil Nadu,Madurai,9.920719,78.110968,0,social_shelter,existing,OpenStreetMap
+OSM-000023,Unnamed Shelter 005,Kerala,,12.043222,75.358429,0,social_shelter,existing,OpenStreetMap
+OSM-000024,Max Minds Rehab Centre,Kerala,,12.194609,75.289247,0,social_shelter,existing,OpenStreetMap
+OSM-000025,Sasthra Family Counseling Centre,Kerala,,12.022537,75.261634,0,social_shelter,existing,OpenStreetMap
+OSM-000026,savita,Kerala,,12.197404,75.198782,0,social_shelter,existing,OpenStreetMap
+OSM-000027,othayarkkam bus shelter,Kerala,,11.953556,75.297787,0,social_shelter,existing,OpenStreetMap
+OSM-000028,Snehalayam,Kerala,,12.365541,75.130098,0,social_shelter,existing,OpenStreetMap
+OSM-000029,Kallalike,Kerala,,12.849438,75.257302,0,social_shelter,existing,OpenStreetMap
+OSM-000030,Unnamed Shelter 006,Karnataka,Dakshina Kannada,12.910592,74.899115,0,social_shelter,existing,OpenStreetMap
+OSM-000032,Unnamed Shelter 007,Karnataka,Bengaluru Urban,13.012871,77.555087,0,social_shelter,existing,OpenStreetMap
+OSM-000033,Unnamed Shelter 008,Karnataka,Bengaluru Urban,13.011150,77.556302,0,social_shelter,existing,OpenStreetMap
+OSM-000036,Unnamed Shelter 009,Karnataka,Bengaluru Urban,13.012337,77.556664,0,social_shelter,existing,OpenStreetMap
+OSM-000037,Unnamed Shelter 010,Karnataka,Bengaluru Urban,13.015328,77.555753,0,social_shelter,existing,OpenStreetMap
+OSM-000038,Unnamed Shelter 011,Karnataka,Bengaluru Urban,13.012048,77.558437,0,social_shelter,existing,OpenStreetMap
+OSM-000039,Unnamed Shelter 012,Karnataka,Bengaluru Urban,13.010956,77.558868,0,social_shelter,existing,OpenStreetMap
+OSM-000040,Unnamed Shelter 013,Karnataka,Bengaluru Urban,12.964159,77.585243,0,social_shelter,existing,OpenStreetMap
+OSM-000041,Unnamed Shelter 014,Karnataka,Bengaluru Urban,12.985501,77.588080,0,social_shelter,existing,OpenStreetMap
+OSM-000043,Unnamed Shelter 015,Karnataka,Bengaluru Urban,12.983433,77.595719,0,social_shelter,existing,OpenStreetMap
+OSM-000044,Unnamed Shelter 016,Karnataka,Bengaluru Urban,12.976279,77.601608,0,social_shelter,existing,OpenStreetMap
+OSM-000045,Unnamed Shelter 017,Karnataka,Bengaluru Urban,12.969081,77.606094,0,social_shelter,existing,OpenStreetMap
+OSM-000046,Fire Assembly Point,Kerala,,8.545780,76.904372,0,social_shelter,existing,OpenStreetMap
+OSM-000047,JUSTIN'S HOME,Kerala,,9.102364,76.823445,0,social_shelter,existing,OpenStreetMap
+OSM-000048,Disaster Rehabilitation Center,Kerala,,9.239332,76.783711,0,social_shelter,existing,OpenStreetMap
+OSM-000049,BETHANY CONVENT,Kerala,,9.022594,76.578714,0,social_shelter,existing,OpenStreetMap
+OSM-000050,CMS Children's Home,Kerala,,9.207704,76.577946,0,social_shelter,existing,OpenStreetMap
+OSM-000051,SHIJO BHAVANAM,Kerala,,9.181173,76.514298,0,social_shelter,existing,OpenStreetMap
+OSM-000052,Unnamed Shelter 018,Tamil Nadu,Thoothukudi,8.558518,77.972967,0,social_shelter,existing,OpenStreetMap
+OSM-000053,Keerankandi colony,Kerala,,11.096241,75.946324,0,social_shelter,existing,OpenStreetMap
+OSM-000054,Kannukulathilmad colony,Kerala,,11.096550,75.944737,0,social_shelter,existing,OpenStreetMap
+OSM-000055,Vaniyamkulam colony,Kerala,,11.103851,75.942183,0,social_shelter,existing,OpenStreetMap
+OSM-000056,Unnamed Shelter 019,Kerala,,11.051072,75.932779,0,social_shelter,existing,OpenStreetMap
+OSM-000057,pk family,Kerala,,11.047594,75.932029,0,social_shelter,existing,OpenStreetMap
+OSM-000058,Karunya Geriatric Care Centre,Kerala,,10.758982,76.690013,0,social_shelter,existing,OpenStreetMap
+OSM-000059,Mareena Home,Kerala,,10.669227,76.085629,0,social_shelter,existing,OpenStreetMap
+OSM-000060,Unnamed Shelter 020,Kerala,,10.519355,76.435888,0,social_shelter,existing,OpenStreetMap
+OSM-000061,Atma Gurukulam,Kerala,,10.552913,76.165313,0,social_shelter,existing,OpenStreetMap
+OSM-000062,Unnamed Shelter 021,Kerala,,11.407481,75.764139,0,social_shelter,existing,OpenStreetMap
+OSM-000063,Aradhana Villas,Kerala,,10.462310,76.246843,0,social_shelter,existing,OpenStreetMap
+OSM-000064,Home stay & food for foreigners,Kerala,,10.412917,76.095139,0,social_shelter,existing,OpenStreetMap
+OSM-000065,Snehasadan Orphanage,Karnataka,Bengaluru Urban,12.880882,77.590170,0,social_shelter,existing,OpenStreetMap
+OSM-000066,Sneha Bhavan Institute,Tamil Nadu,Krishnagiri,12.699791,77.856342,0,social_shelter,existing,OpenStreetMap
+OSM-000067,REDS Skill Training Centre,Karnataka,Bengaluru Urban,12.826994,77.706367,0,social_shelter,existing,OpenStreetMap
+OSM-000068,Unnamed Shelter 022,Karnataka,Bengaluru Urban,12.910317,77.593017,0,social_shelter,existing,OpenStreetMap
+OSM-000069,Beena Ville,Karnataka,Bengaluru Urban,12.872745,77.653838,0,social_shelter,existing,OpenStreetMap
+OSM-000070,Unnamed Shelter 023,Karnataka,Bengaluru Urban,12.941269,77.594684,0,social_shelter,existing,OpenStreetMap
+OSM-000071,Unnamed Shelter 024,Karnataka,Bengaluru Urban,12.942945,77.596781,0,social_shelter,existing,OpenStreetMap
+OSM-000072,Suryodaya Boys Centre,Karnataka,Bengaluru Urban,12.899678,77.714773,0,social_shelter,existing,OpenStreetMap
+OSM-000073,Unnamed Shelter 025,Karnataka,Bengaluru Urban,12.966964,77.635377,0,social_shelter,existing,OpenStreetMap
+OSM-000074,MSMI Anugraha Children's Home,Karnataka,Bengaluru Urban,12.916821,77.716336,0,social_shelter,existing,OpenStreetMap
+OSM-000075,St. Michael's Home,Karnataka,Bengaluru Urban,12.984445,77.646477,0,social_shelter,existing,OpenStreetMap
+OSM-000076,আটগ্রাম বিজিবি ক্যাম্প,Meghalaya,,24.995295,92.408390,0,social_shelter,existing,OpenStreetMap
+OSM-000077,shelter center kathhal bari,Meghalaya,,25.549051,89.817251,0,social_shelter,existing,OpenStreetMap
+OSM-000078,flood shelter center 5 km 18 b,Meghalaya,,25.541352,89.813711,0,social_shelter,existing,OpenStreetMap
+OSM-000079,Satalskar Girls Government Primary School,West Bengal,,25.597267,89.584605,0,social_shelter,existing,OpenStreetMap
+OSM-000080,Pakurtola parimari school,West Bengal,,24.195605,89.688915,100,social_shelter,existing,OpenStreetMap
+OSM-000081,Jahid's Home,Assam,,24.109375,90.093896,0,social_shelter,existing,OpenStreetMap
+OSM-000082,Unnamed Shelter 026,West Bengal,,24.086153,88.260771,0,social_shelter,existing,OpenStreetMap
+OSM-000083,COZY HOMESTAY,Meghalaya,,26.128520,91.805460,0,social_shelter,existing,OpenStreetMap
+OSM-000343,Radha Gobindo Seba Asrom,West Bengal,,22.471585,89.818842,0,social_shelter,existing,OpenStreetMap
+OSM-000344,2 storied Cyclone Shelter of Dr Masum Billah D N,West Bengal,,22.360559,89.817497,0,social_shelter,existing,OpenStreetMap
+OSM-000346,Dr. Mohammad Mozammel Hossain Orphanage Centre,West Bengal,,22.381602,89.790493,0,social_shelter,existing,OpenStreetMap
+OSM-000347,Cyclone Shelter 1 no Ketrur Baria,West Bengal,,22.371567,89.792247,0,social_shelter,existing,OpenStreetMap
+OSM-000353,Rasulpur Bazar adjacent shelter center,West Bengal,,22.298065,89.782073,0,social_shelter,existing,OpenStreetMap
+OSM-000354,baroi khali asroy kendro,West Bengal,,22.574825,89.500954,0,social_shelter,existing,OpenStreetMap
+OSM-000361,Jaya Saud Home,Uttarakhand,,29.675919,80.585403,0,social_shelter,existing,OpenStreetMap
+OSM-000362,कुलाकत्ने खुल्ला स्थान,Uttarakhand,,29.488610,81.067849,0,social_shelter,existing,OpenStreetMap
+OSM-000363,पाचरावल खुल्ला स्थान,Uttarakhand,,29.481668,81.054066,0,social_shelter,existing,OpenStreetMap
+OSM-000364,Sunnedi OpenSpace,Uttarakhand,,29.484171,81.069871,0,social_shelter,existing,OpenStreetMap
+OSM-000365,Chakreswar Open Space,Uttar Pradesh,,29.499299,81.104386,0,social_shelter,existing,OpenStreetMap
+OSM-000366,धुरा खुल्ला स्थान,Uttarakhand,,29.485553,81.087831,0,social_shelter,existing,OpenStreetMap
+OSM-000367,Masta Pra Bhi Open Space,Uttar Pradesh,,29.503512,81.120787,0,social_shelter,existing,OpenStreetMap
+OSM-000368,Open Space,Uttar Pradesh,,29.494282,81.110679,0,social_shelter,existing,OpenStreetMap
+OSM-000369,Dhanne Kanda Open Space,Uttar Pradesh,,29.490068,81.107657,0,social_shelter,existing,OpenStreetMap
+OSM-000370,Bhadarasain Open Space,Uttar Pradesh,,29.486986,81.104426,0,social_shelter,existing,OpenStreetMap
+OSM-000371,Unnamed Shelter 027,Uttar Pradesh,,29.680086,81.942374,0,social_shelter,existing,OpenStreetMap
+OSM-000372,घिया सुरक्षित भवन,Uttar Pradesh,,28.510100,81.057600,0,social_shelter,existing,OpenStreetMap
+OSM-000373,भर्तापुर सुरक्षित सामुदायिक भवन,Uttar Pradesh,,28.500200,81.045100,0,social_shelter,existing,OpenStreetMap
+OSM-000374,भगवानपुर उच्च घर,Uttar Pradesh,,28.496900,81.056600,0,social_shelter,existing,OpenStreetMap
+OSM-000375,बेलुवावोझी उच्च घर,Uttar Pradesh,,28.496900,81.068000,0,social_shelter,existing,OpenStreetMap
+OSM-000376,आम्बासा सामुदायिक भवन,Uttar Pradesh,,28.496300,81.079600,0,social_shelter,existing,OpenStreetMap
+OSM-000377,नारायणपुर सुरक्षित सामुदायिक भवन,Uttar Pradesh,,28.479900,81.067100,0,social_shelter,existing,OpenStreetMap
+OSM-000378,कर्मी डाँडा उच्च भवन,Uttar Pradesh,,28.477165,81.113859,0,social_shelter,existing,OpenStreetMap
+OSM-000379,प्रतिपुर उच्च भवन,Uttar Pradesh,,28.461400,81.037000,0,social_shelter,existing,OpenStreetMap
+OSM-000380,बैदी उच्च भवन,Uttar Pradesh,,28.454700,81.028300,0,social_shelter,existing,OpenStreetMap
+OSM-000381,बन्जरिया उच्च घर,Uttar Pradesh,,28.447700,81.062400,0,social_shelter,existing,OpenStreetMap
+OSM-000382,बनगाउँ उच्च घर,Uttar Pradesh,,28.439800,81.074800,0,social_shelter,existing,OpenStreetMap
+OSM-000383,फटा उच्च घर,Uttar Pradesh,,28.434022,81.073038,0,social_shelter,existing,OpenStreetMap
+OSM-000384,Shajha Ghar Bal Aasram,Uttar Pradesh,,28.601531,81.606378,0,social_shelter,existing,OpenStreetMap
+OSM-000385,Blue Ocean Oldage Shelter (Nilsagar Aashaya Aasakta Tatha Jestha Nagarik Kendra),Uttar Pradesh,,28.059820,81.636736,0,social_shelter,existing,OpenStreetMap
+OSM-000386,Deopa's House,Uttarakhand,,29.067556,79.326106,0,social_shelter,existing,OpenStreetMap
+OSM-000387,Salaam Baalak Trust,Uttar Pradesh,,28.677242,77.322587,0,social_shelter,existing,OpenStreetMap
+OSM-000388,Unnamed Shelter 028,Uttar Pradesh,,28.639465,77.291853,0,social_shelter,existing,OpenStreetMap
+OSM-000389,Night Shelter,Uttar Pradesh,,28.618073,77.309629,0,social_shelter,existing,OpenStreetMap
+OSM-000390,Unnamed Shelter 029,Uttar Pradesh,,28.666650,77.235371,0,social_shelter,existing,OpenStreetMap
+OSM-000391,B,Uttar Pradesh,,28.666009,77.214958,0,social_shelter,existing,OpenStreetMap
+OSM-000392,Unnamed Shelter 030,Uttar Pradesh,,28.669141,77.209099,0,social_shelter,existing,OpenStreetMap
+OSM-000393,Unnamed Shelter 031,Uttar Pradesh,,28.657278,77.203438,0,social_shelter,existing,OpenStreetMap
+OSM-000394,Unnamed Shelter 032,Uttar Pradesh,,28.614983,77.244521,0,social_shelter,existing,OpenStreetMap
+OSM-000395,Unnamed Shelter 033,Uttar Pradesh,,28.633186,77.221987,0,social_shelter,existing,OpenStreetMap
+OSM-000397,Khirki Village Choupal,Uttar Pradesh,,28.531643,77.218629,0,social_shelter,existing,OpenStreetMap
+OSM-000398,Widow Home,Uttar Pradesh,,28.623314,77.098470,100,social_shelter,existing,OpenStreetMap
+OSM-000401,Unnamed Shelter 034,Uttar Pradesh,,28.557729,77.086910,0,social_shelter,existing,OpenStreetMap
+OSM-000402,Unnamed Shelter 035,Uttar Pradesh,,28.475994,77.093712,0,social_shelter,existing,OpenStreetMap
+OSM-000403,Unnamed Shelter 036,Uttar Pradesh,,28.458624,77.072458,0,social_shelter,existing,OpenStreetMap
+OSM-000404,Unnamed Shelter 037,West Bengal,,26.525460,88.719690,0,social_shelter,existing,OpenStreetMap
+OSM-000405,Ashray,West Bengal,,26.513269,88.730805,0,social_shelter,existing,OpenStreetMap
+GOV-ASSAM-TIN-001,A.R.&T. CO.'S HIGH SCHOOL,Assam,Tinsukia,27.289133,95.675417,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-002,GANDHI VIDYA MANDIR LPS,Assam,Tinsukia,27.290167,95.674967,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-004,MAHARAM BORO UPS,Assam,Tinsukia,27.300900,95.597333,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-005,NIZ MAKUM MVS,Assam,Tinsukia,27.296050,95.607650,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-006,POWAIMUKH JANAJATI MES,Assam,Tinsukia,27.294400,95.576433,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-007,LEDO TE LP,Assam,Tinsukia,27.305200,95.757917,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-008,KAMBA GAON LPS,Assam,Tinsukia,27.321400,95.793233,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-009,AMRIT GAON LPS,Assam,Tinsukia,27.336733,95.765750,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-010,LEDO SARBAJANIN LPS,Assam,Tinsukia,27.296217,95.765400,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-011,MAICHANG PANI LPS,Assam,Tinsukia,27.365350,95.782483,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-012,KHARANGKONG LP,Assam,Tinsukia,27.373917,95.835667,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-013,KUMCHAI GOVT LPS,Assam,Tinsukia,27.366183,95.796550,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-014,TINISUTI GOVT. LPS,Assam,Tinsukia,27.331300,95.816700,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-015,KOTHA KAKHORONI LPS,Assam,Tinsukia,27.408683,95.874100,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-016,CHANDRAPUR LPS,Assam,Tinsukia,27.860933,95.705483,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-017,TEKERI MES,Assam,Tinsukia,27.420683,95.818900,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-018,DIBONG PHAKIAL LPS,Assam,Tinsukia,27.313817,95.698283,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-019,DIBONG ADARSHA MES,Assam,Tinsukia,27.329150,95.690100,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-020,3 NO. ALUBARI LPS,Assam,Tinsukia,27.310367,95.678967,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-021,SATI JOYMOTI LPS/KHAGORI PATHAR LP,Assam,Tinsukia,27.279167,95.601167,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-022,LAMA GAON LPS,Assam,Tinsukia,27.294100,95.636150,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-023,NAMDANG BASHBARI LPS,Assam,Tinsukia,27.295867,95.691100,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-024,MARGHERITA TOWN L P S,Assam,Tinsukia,27.288867,95.670017,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-025,MULANG LPS/TIRAPMUKH LPS,Assam,Tinsukia,27.316100,95.732333,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-026,TOKLONG LPS,Assam,Tinsukia,27.344733,95.775850,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-027,KUMCHAI KONG HIGH SCHOOL,Assam,Tinsukia,27.347667,95.799500,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-028,BORDIRAK GOHAIN GAON LPS,Assam,Tinsukia,27.641867,95.770717,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-029,BORFAKIAL LPS,Assam,Tinsukia,27.327733,95.708533,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-TIN-030,1 NO ALUBARI,Assam,Tinsukia,27.323850,95.689833,0,relief_camp,disaster_activated,Official Assam DDMP — Tinsukia
+GOV-ASSAM-0001,Mrs Kabita Gogoi,Assam,Golaghat,26.602800,93.050000,0,relief_camp,disaster_activated,Official Assam DDMP
+GOV-ASSAM-0002,"Sri Minal Baruah,HM Bhaskar Konwar",Assam,Golaghat,26.610750,93.033333,0,relief_camp,disaster_activated,Official Assam DDMP
+GOV-ASSAM-0003,MISSIMI ATI DILIP RAJKHOWA,Assam,Golaghat,26.696750,93.433333,0,relief_camp,disaster_activated,Official Assam DDMP
+GOV-ASSAM-GOL-DER-001,BAHGURI UDAYAN TRIBAL HIGH SCHOOL,Assam,Golaghat,26.713333,93.969722,75,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-002,DERGAON TOWN HIGH SCHOOL,Assam,Golaghat,26.724167,93.969444,46,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-003,DERGAON HIGH SECONDARY SCHOOL,Assam,Golaghat,26.710000,93.980000,98,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-004,NEGHERITING HIGH SCHOOL,Assam,Golaghat,26.733333,93.998889,72,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-005,GARMORA L.P. SCHOOL,Assam,Golaghat,26.743611,93.920000,30,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-006,NEHERU MES,Assam,Golaghat,26.741667,93.909167,36,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-007,KOROIANI HIGH SCHOOL,Assam,Golaghat,26.698889,93.898056,33,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-008,NABHANGA BAPUJI HIGH SCHOOL,Assam,Golaghat,26.725278,93.908889,40,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-009,RANGAMATI HIGH SCHOOL,Assam,Golaghat,26.676389,93.907778,97,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-010,DEBEN SARMA LPS,Assam,Golaghat,26.740883,93.971000,32,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-011,GELABIL ABHYASON LPS,Assam,Golaghat,26.719150,93.961000,35,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-013,NEGHERITING TEKELIA LINE LPS,Assam,Golaghat,26.732267,94.002367,18,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-015,DERGAON TOWN SBS,Assam,Golaghat,26.701833,93.974633,39,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-016,DERGAON GIRLS SBS,Assam,Golaghat,26.712867,93.973400,45,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-017,DERGAON GIRLS HSS,Assam,Golaghat,26.706200,93.976283,63,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-018,INDRANEE DEVI HSS,Assam,Golaghat,26.694383,93.975283,71,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-019,SANKARDEV HIGH SCHOOL,Assam,Golaghat,26.678533,93.948967,81,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-DER-020,GORMORA HIGH SCHOOL,Assam,Golaghat,26.231550,93.861567,62,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-001,1 No Khumtai Model LPS,Assam,Golaghat,26.608889,93.837979,40,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-002,KHUMTAI HSS,Assam,Golaghat,26.610750,93.837867,130,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-003,Leteku Chapori LPS,Assam,Golaghat,26.604667,93.826917,45,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-004,No1 ButaliKhuwa LPS,Assam,Golaghat,26.582083,93.865400,40,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-005,No2 ButaliKhuwa LPS,Assam,Golaghat,26.590550,93.853333,35,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-006,No.1 Butalikhuwa Barbalitup LPS,Assam,Golaghat,26.572017,93.853122,30,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-007,Thengal Gaon M.E.School,Assam,Golaghat,26.620250,93.785322,60,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-008,Danohsuk LPS,Assam,Golaghat,26.628561,93.766305,35,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-009,Dusutimukh High School,Assam,Golaghat,26.702050,93.823722,90,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-010,HATIMORA LPS,Assam,Golaghat,26.682583,93.841800,40,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-011,Badulipar H.S. School,Assam,Golaghat,26.672050,93.865150,100,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-012,SINGABILL LPS,Assam,Golaghat,26.676383,93.871583,60,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-013,RANGAMUNI LPS,Assam,Golaghat,26.667017,93.850867,50,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-014,Leblepi LPS,Assam,Golaghat,26.662917,93.862100,150,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-GOL-KHU-015,Na-Gaon LPS,Assam,Golaghat,26.670383,93.857133,80,relief_camp,disaster_activated,Official Assam DDMP — Golaghat
+GOV-ASSAM-MOR-ID-001,Red building near Kanphala LP School,Assam,Morigaon,26.321671,92.263487,95,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-002,Ranga Mancha,Assam,Morigaon,26.322539,92.260679,51,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-003,Da-Chikabori LP School,Assam,Morigaon,26.299465,92.263534,159,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-004,Boidyobori High School,Assam,Morigaon,26.312286,92.296035,210,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-005,Boidyobori M.E School,Assam,Morigaon,26.310719,92.289522,207,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-006,Durani L.P School,Assam,Morigaon,26.269374,92.293179,85,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-007,Patidoya L.P School,Assam,Morigaon,26.111484,92.778753,105,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-008,Khatorbori L.P School,Assam,Morigaon,26.712275,92.649423,108,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-009,Nellie College,Assam,Morigaon,26.099997,92.315200,190,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-013,Nellie M.E. School + Girls,Assam,Morigaon,26.127169,92.318730,70,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-014,Alisinga L.P School,Assam,Morigaon,26.141236,92.333856,85,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-015,Bakhorbori RakhMandi,Assam,Morigaon,26.295420,92.307234,185,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-016,Rupahibari LP School,Assam,Morigaon,26.307605,92.310041,10,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-017,Dighalbori MV School,Assam,Morigaon,26.310933,92.295864,20,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-018,Satanguri MV School,Assam,Morigaon,26.290610,92.324758,45,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-019,Ouguri High School,Assam,Morigaon,26.303921,92.361954,70,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-020,Bhurbandha MV School,Assam,Morigaon,26.306480,92.364852,120,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-021,Baidyabari Higher Secondary School,Assam,Morigaon,26.312293,92.297824,450,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-ID-022,Brahmabari LP School,Assam,Morigaon,26.311730,92.302905,70,relief_camp,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-001,Sukdal High School,Assam,Morigaon,26.352310,92.396460,150,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-002,Rangadariya HS School,Assam,Morigaon,26.352090,92.444780,200,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-003,Mikirbheta HS School,Assam,Morigaon,26.323890,92.454900,200,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-004,Adarsha HS School,Assam,Morigaon,26.358740,92.512860,200,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-005,Kalikajari L.P. School,Assam,Morigaon,26.332500,92.376110,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-006,Borghuli L.P. School,Assam,Morigaon,26.328055,92.370000,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-007,Dakshin Kalikajari L.P. School,Assam,Morigaon,26.316660,92.378330,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-008,Nehru Smriti M.E. School,Assam,Morigaon,26.379166,92.534440,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-009,Konpai Bordoloi HS School,Assam,Morigaon,26.367770,92.508880,200,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-010,Dhaniram Boruah HS School,Assam,Morigaon,26.357500,92.515000,200,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-011,Mikirgaon Senior Basic School,Assam,Morigaon,26.275026,92.504412,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-012,Bamunbori Tribal LP School,Assam,Morigaon,26.299970,92.529100,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-013,Alakapur Higher Secondary School,Assam,Morigaon,26.274529,92.477754,200,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
+GOV-ASSAM-MOR-TMP-014,Kachadhara Satgaon L.P. School,Assam,Morigaon,26.270159,92.438984,100,temporary_shelter,disaster_activated,Official Assam DDMP — Morigaon
