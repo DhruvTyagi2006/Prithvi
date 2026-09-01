@@ -220,3 +220,4 @@ __marimo__/
 node_modules/
 
 ../.DS_Store
+*.db
