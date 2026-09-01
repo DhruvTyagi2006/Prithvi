@@ -1,10 +1,12 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
 from backend.schemas.alert import AlertListResponse
 from backend.services.alert_service import (
     get_all_alerts,
     get_alerts_for_location,
 )
+from backend.database.connection import get_db
 
 
 router = APIRouter(
@@ -18,8 +20,10 @@ router = APIRouter(
     response_model=AlertListResponse,
     summary="List current environmental alerts",
 )
-def list_alerts():
-    alerts = get_all_alerts()
+def list_alerts(
+    db: Session = Depends(get_db),
+):
+    alerts = get_all_alerts(db)
 
     return AlertListResponse(
         alerts=alerts,
@@ -32,8 +36,14 @@ def list_alerts():
     response_model=AlertListResponse,
     summary="Get alerts for a location",
 )
-def get_location_alerts(location_id: str):
-    alerts = get_alerts_for_location(location_id)
+def get_location_alerts(
+    location_id: str,
+    db: Session = Depends(get_db),
+):
+    alerts = get_alerts_for_location(
+        location_id,
+        db,
+    )
 
     return AlertListResponse(
         alerts=alerts,

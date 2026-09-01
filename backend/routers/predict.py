@@ -15,21 +15,23 @@ def predict(
     payload: PredictionRequest,
     db: Session = Depends(get_db),
 ):
-    location = (
-        db.query(Location)
-        .filter(
-            Location.latitude.between(
-                payload.latitude - 0.001,
-                payload.latitude + 0.001,
-            ),
-            Location.longitude.between(
-                payload.longitude - 0.001,
-                payload.longitude + 0.001,
-            ),
-        )
-        .first()
-    )
+    # Find the nearest location to the submitted coordinates
+    locations = db.query(Location).all()
 
+    nearest_location = None
+    nearest_distance = float("inf")
+
+    for loc in locations:
+        distance = (
+            (loc.latitude - payload.latitude) ** 2
+            + (loc.longitude - payload.longitude) ** 2
+        )
+
+        if distance < nearest_distance:
+            nearest_distance = distance
+            nearest_location = loc
+
+    # Run the ML prediction
     result = predict_risk(
         rainfall_1h=payload.rainfall_1h,
         rainfall_6h=payload.rainfall_6h,
@@ -41,7 +43,11 @@ def predict(
     )
 
     return PredictionResponse(
-        location=location.name if location else "Unknown location",
+        location=(
+            nearest_location.name
+            if nearest_location
+            else "Unknown location"
+        ),
         flood_probability=result.flood_probability,
         landslide_probability=result.landslide_probability,
         overall_risk=result.overall_risk,

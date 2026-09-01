@@ -196,67 +196,17 @@ export default function Dashboard() {
     );
   }, [locations, selectedId]);
 
-  // =====================================================
   // LOCATION SENSORS
-  // =====================================================
-
-  /*
-   * IMPORTANT:
-   *
-   * Locations use IDs like:
-   *
-   * loc-005
-   *
-   * Sensors currently use IDs like:
-   *
-   * NAG_02
-   *
-   * Therefore we CANNOT match sensors using:
-   *
-   * sensor.location_id === location.id
-   *
-   * Instead, we match sensors using their coordinates.
-   *
-   * If a sensor is within a small distance of the
-   * selected location, we consider it associated.
-   */
-
   const locationSensors = useMemo(() => {
     if (!location) {
       return [];
     }
 
-    const LOCATION_DISTANCE_THRESHOLD = 0.15;
-
-    return sensors.filter((sensor) => {
-      if (
-        sensor.latitude == null ||
-        sensor.longitude == null ||
-        location.latitude == null ||
-        location.longitude == null
-      ) {
-        return false;
-      }
-
-      const latitudeDifference =
-        Math.abs(
-          Number(sensor.latitude) -
-            Number(location.latitude)
-        );
-
-      const longitudeDifference =
-        Math.abs(
-          Number(sensor.longitude) -
-            Number(location.longitude)
-        );
-
-      return (
-        latitudeDifference <=
-          LOCATION_DISTANCE_THRESHOLD &&
-        longitudeDifference <=
-          LOCATION_DISTANCE_THRESHOLD
-      );
-    });
+    return sensors.filter(
+      (sensor) =>
+        String(sensor.location_id) ===
+        String(location.id)
+    );
   }, [sensors, location]);
 
   // =====================================================

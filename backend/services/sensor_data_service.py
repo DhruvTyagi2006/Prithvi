@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 from backend.models.sensor import Sensor
 from backend.models.sensor_reading import SensorReading
+from backend.models.location import Location
 
 
 DATA_PATH = (
@@ -83,8 +84,44 @@ def load_sensor_data() -> pd.DataFrame:
     )
 
 
-def get_all_sensors() -> list[dict]:
+def find_nearest_location(
+    latitude: float,
+    longitude: float,
+    locations: list[Location],
+) -> Location | None:
+    """
+    Find the Prithvi location geographically closest
+    to the sensor coordinates.
+    """
+
+    if not locations:
+        return None
+
+    nearest_location = None
+    nearest_distance = float("inf")
+
+    for location in locations:
+        distance = (
+            (location.latitude - latitude) ** 2
+            + (location.longitude - longitude) ** 2
+        )
+
+        if distance < nearest_distance:
+            nearest_distance = distance
+            nearest_location = location
+
+    return nearest_location
+
+
+def get_all_sensors(
+    db: Session | None = None,
+) -> list[dict]:
     df = load_sensor_data()
+
+    locations = []
+
+    if db is not None:
+        locations = db.query(Location).all()
 
     latest = (
         df.sort_values("timestamp")
@@ -96,31 +133,52 @@ def get_all_sensors() -> list[dict]:
     sensors = []
 
     for _, row in latest.iterrows():
+
+        nearest_location = find_nearest_location(
+            float(row["latitude"]),
+            float(row["longitude"]),
+            locations,
+        )
+
         sensors.append(
             {
                 "id": str(row["sensor_id"]),
-                "location_id": str(row["sensor_id"]),
+
+                "location_id": (
+                    nearest_location.id
+                    if nearest_location
+                    else str(row["sensor_id"])
+                ),
+
                 "latitude": float(row["latitude"]),
                 "longitude": float(row["longitude"]),
+
                 "sensor_type": "environmental",
+
                 "status": calculate_sensor_status(
                     row["timestamp"]
                 ),
+
                 "last_updated": row[
                     "timestamp"
                 ].to_pydatetime(),
+
                 "rainfall": safe_float(
                     row["rainfall_1h"]
                 ),
+
                 "soil_moisture": safe_float(
                     row["soil_moisture"]
                 ),
+
                 "slope_movement": safe_float(
                     row["slope_movement"]
                 ),
+
                 "state": clean_string(
                     row["state"]
                 ),
+
                 "district": clean_string(
                     row["district"]
                 ),
@@ -132,6 +190,7 @@ def get_all_sensors() -> list[dict]:
 
 def get_sensor(
     sensor_id: str,
+    db: Session | None = None,
 ) -> dict | None:
     df = load_sensor_data()
 
@@ -149,30 +208,55 @@ def get_sensor(
         .iloc[-1]
     )
 
+    locations = []
+
+    if db is not None:
+        locations = db.query(Location).all()
+
+    nearest_location = find_nearest_location(
+        float(row["latitude"]),
+        float(row["longitude"]),
+        locations,
+    )
+
     return {
         "id": str(row["sensor_id"]),
-        "location_id": str(row["sensor_id"]),
+
+        "location_id": (
+            nearest_location.id
+            if nearest_location
+            else str(row["sensor_id"])
+        ),
+
         "latitude": float(row["latitude"]),
         "longitude": float(row["longitude"]),
+
         "sensor_type": "environmental",
+
         "status": calculate_sensor_status(
             row["timestamp"]
         ),
+
         "last_updated": row[
             "timestamp"
         ].to_pydatetime(),
+
         "rainfall": safe_float(
             row["rainfall_1h"]
         ),
+
         "soil_moisture": safe_float(
             row["soil_moisture"]
         ),
+
         "slope_movement": safe_float(
             row["slope_movement"]
         ),
+
         "state": clean_string(
             row["state"]
         ),
+
         "district": clean_string(
             row["district"]
         ),
@@ -183,6 +267,7 @@ def get_latest_reading(
     sensor_id: str,
     db: Session | None = None,
 ) -> dict | None:
+
     if db is not None:
         reading = (
             db.query(SensorReading)
@@ -225,10 +310,18 @@ def get_latest_reading(
 
     return {
         "sensor_id": str(row["sensor_id"]),
-        "state": clean_string(row["state"]),
-        "district": clean_string(row["district"]),
-        "latitude": safe_float(row["latitude"]),
-        "longitude": safe_float(row["longitude"]),
+        "state": clean_string(
+            row["state"]
+        ),
+        "district": clean_string(
+            row["district"]
+        ),
+        "latitude": safe_float(
+            row["latitude"]
+        ),
+        "longitude": safe_float(
+            row["longitude"]
+        ),
         "timestamp": row[
             "timestamp"
         ].to_pydatetime(),
@@ -255,9 +348,11 @@ def get_sensor_readings(
     limit: int = 100,
     db: Session | None = None,
 ) -> list[dict]:
+
     readings = []
 
     if db is not None:
+
         query = db.query(SensorReading)
 
         if sensor_id is not None:
@@ -311,26 +406,33 @@ def get_sensor_readings(
     )
 
     for _, row in df.iterrows():
+
         readings.append(
             {
                 "sensor_id": str(
                     row["sensor_id"]
                 ),
+
                 "timestamp": row[
                     "timestamp"
                 ].to_pydatetime(),
+
                 "rainfall_1h": safe_float(
                     row["rainfall_1h"]
                 ),
+
                 "rainfall_6h": safe_float(
                     row["rainfall_6h"]
                 ),
+
                 "rainfall_24h": safe_float(
                     row["rainfall_24h"]
                 ),
+
                 "soil_moisture": safe_float(
                     row["soil_moisture"]
                 ),
+
                 "slope_movement": safe_float(
                     row["slope_movement"]
                 ),
@@ -348,6 +450,7 @@ def create_sensor_reading(
     soil_moisture: float | None,
     slope_movement: float | None,
 ):
+
     sensor = (
         db.query(Sensor)
         .filter(
@@ -380,40 +483,17 @@ def create_sensor_reading(
 def calculate_sensor_status(
     timestamp: pd.Timestamp,
 ) -> str:
+
     if pd.isna(timestamp):
         return "OFFLINE"
 
-    now = pd.Timestamp.now(
-        tz="UTC"
-    )
-
-    timestamp = pd.Timestamp(
-        timestamp
-    )
-
-    if timestamp.tzinfo is None:
-        timestamp = timestamp.tz_localize(
-            "UTC"
-        )
-    else:
-        timestamp = timestamp.tz_convert(
-            "UTC"
-        )
-
-    age_hours = (
-        now - timestamp
-    ).total_seconds() / 3600
-
-    if age_hours <= 24:
-        return "ONLINE"
-
-    if age_hours <= 24 * 7:
-        return "WARNING"
-
-    return "OFFLINE"
+    # Historical CSV data is being used as
+    # simulated IoT sensor data for the prototype.
+    return "ONLINE"
 
 
 def safe_float(value):
+
     if pd.isna(value):
         return None
 
@@ -421,6 +501,7 @@ def safe_float(value):
 
 
 def clean_string(value):
+
     if pd.isna(value):
         return None
 
