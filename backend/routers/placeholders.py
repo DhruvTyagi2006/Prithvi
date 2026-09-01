@@ -1,24 +1,37 @@
 """
 Integration placeholders for endpoints owned by the remaining modules.
 
-These routes exist so the agreed API contracts remain visible in Swagger
-until the corresponding modules are implemented.
+The alert endpoints are implemented using services.alert_service.
+Other endpoints remain placeholders until their respective modules
+are fully integrated.
 """
 
 from fastapi import APIRouter, HTTPException, status
 
 from backend.schemas.predict import PredictionRequest, PredictionResponse
 from backend.schemas.sensor import SensorOut
-from backend.schemas.sensor_reading import SensorReadingCreate, SensorReadingOut
-
-
-router = APIRouter(tags=["not-yet-implemented"])
-
-_NOT_IMPLEMENTED = (
-    "Not yet implemented — owned by another module. "
-    "See routers/placeholders.py."
+from backend.schemas.sensor_reading import (
+    SensorReadingCreate,
+    SensorReadingOut,
 )
 
+from backend.services.alert_service import (
+    get_all_alerts,
+    get_alerts_for_location,
+)
+
+
+router = APIRouter(tags=["integration"])
+
+
+_NOT_IMPLEMENTED = (
+    "Not yet implemented — owned by another module."
+)
+
+
+# =====================================================
+# PREDICTION
+# =====================================================
 
 @router.post(
     "/predict",
@@ -31,33 +44,16 @@ _NOT_IMPLEMENTED = (
 )
 def predict(payload: PredictionRequest):
     raise HTTPException(
-        status.HTTP_501_NOT_IMPLEMENTED,
+        status_code=status.HTTP_501_NOT_IMPLEMENTED,
         detail=_NOT_IMPLEMENTED,
     )
 
 
-@router.get(
-    "/sensors",
-    response_model=list[SensorOut],
-    summary="[Placeholder] List sensors (Developer 3)",
-)
-def list_sensors():
-    raise HTTPException(
-        status.HTTP_501_NOT_IMPLEMENTED,
-        detail=_NOT_IMPLEMENTED,
-    )
+# =====================================================
+# SENSORS
+# =====================================================
 
 
-@router.get(
-    "/sensors/{sensor_id}",
-    response_model=SensorOut,
-    summary="[Placeholder] Get a single sensor (Developer 3)",
-)
-def get_sensor(sensor_id: str):
-    raise HTTPException(
-        status.HTTP_501_NOT_IMPLEMENTED,
-        detail=_NOT_IMPLEMENTED,
-    )
 
 
 @router.post(
@@ -67,28 +63,33 @@ def get_sensor(sensor_id: str):
 )
 def post_sensor_data(payload: SensorReadingCreate):
     raise HTTPException(
-        status.HTTP_501_NOT_IMPLEMENTED,
+        status_code=status.HTTP_501_NOT_IMPLEMENTED,
         detail=_NOT_IMPLEMENTED,
     )
 
+
+# =====================================================
+# ALERTS
+# =====================================================
 
 @router.get(
     "/alerts",
-    summary="[Placeholder] List alerts (Developer 3)",
+    summary="List current disaster alerts",
+    description=(
+        "Returns alerts generated from the latest available "
+        "environmental and sensor observations."
+    ),
 )
 def list_alerts():
-    raise HTTPException(
-        status.HTTP_501_NOT_IMPLEMENTED,
-        detail=_NOT_IMPLEMENTED,
-    )
+    return get_all_alerts()
 
 
 @router.get(
     "/alerts/{location_id}",
-    summary="[Placeholder] Get alerts for a location (Developer 3)",
+    summary="Get alerts for a location",
+    description=(
+        "Returns alerts associated with the specified location."
+    ),
 )
-def get_alerts_for_location(location_id: str):
-    raise HTTPException(
-        status.HTTP_501_NOT_IMPLEMENTED,
-        detail=_NOT_IMPLEMENTED,
-    )
+def get_alerts_for_location_route(location_id: str):
+    return get_alerts_for_location(location_id)
