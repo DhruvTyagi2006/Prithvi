@@ -14,10 +14,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b ${
+      className={`sticky top-0 z-40 border-b backdrop-blur-md ${
         onLanding
-          ? 'border-transparent bg-[#04070d]'
-          : 'border-[#163A5F]/10 bg-mist/85 backdrop-blur-md'
+          ? 'border-electric/10 bg-abyss/25'
+          : 'border-[#163A5F]/10 bg-mist/85'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">

@@ -1,371 +1,63 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
-
 import RiskBadge from '../components/RiskBadge';
-import { getAlerts } from '../services/api';
+import { ALERTS, LOCATIONS, classifyRisk } from '../data/mockData';
 
 export default function Alerts() {
   const ref = useRef(null);
-
-  const [alerts, setAlerts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // =====================================================
-  // LOAD ALERTS FROM BACKEND
-  // =====================================================
-
   useEffect(() => {
-    const loadAlerts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const data = await getAlerts();
-
-        const backendAlerts = Array.isArray(data)
-          ? data
-          : data?.alerts || [];
-
-        setAlerts(backendAlerts);
-
-        console.log(
-          'Alerts received from backend:',
-          backendAlerts
-        );
-      } catch (err) {
-        console.error('Failed to load alerts:', err);
-
-        setError(
-          err?.message || 'Failed to load alert data'
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadAlerts();
+    const ctx = gsap.context(() => {
+      gsap.from('.alert-card', { opacity: 0, x: -16, stagger: 0.08, duration: 0.5, ease: 'power2.out' });
+    }, ref);
+    return () => ctx.revert();
   }, []);
 
-  // =====================================================
-  // ONLY SHOW ACTIVE ALERTS
-  // =====================================================
-
-  const activeAlerts = useMemo(() => {
-    return alerts
-      .filter(
-        (alert) => alert.risk_level !== 'LOW'
-      )
-      .sort((a, b) => {
-        const priority = {
-          CRITICAL: 4,
-          HIGH: 3,
-          MODERATE: 2,
-          LOW: 1,
-        };
-
-        if (
-          priority[b.risk_level] !==
-          priority[a.risk_level]
-        ) {
-          return (
-            priority[b.risk_level] -
-            priority[a.risk_level]
-          );
-        }
-
-        return (
-          new Date(b.timestamp || 0) -
-          new Date(a.timestamp || 0)
-        );
-      });
-  }, [alerts]);
-
-  // =====================================================
-  // ALERT COUNTS
-  // =====================================================
-
-  const counts = useMemo(() => {
-    return {
-      CRITICAL: alerts.filter(
-        (alert) =>
-          alert.risk_level === 'CRITICAL'
-      ).length,
-
-      HIGH: alerts.filter(
-        (alert) =>
-          alert.risk_level === 'HIGH'
-      ).length,
-
-      MODERATE: alerts.filter(
-        (alert) =>
-          alert.risk_level === 'MODERATE'
-      ).length,
-    };
-  }, [alerts]);
-
-  // =====================================================
-  // GSAP ANIMATION
-  // =====================================================
-
-  useEffect(() => {
-    if (
-      loading ||
-      activeAlerts.length === 0
-    ) {
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.from('.alert-card', {
-        opacity: 0,
-        x: -16,
-        stagger: 0.08,
-        duration: 0.5,
-        ease: 'power2.out',
-      });
-    }, ref);
-
-    return () => ctx.revert();
-  }, [loading, activeAlerts]);
-
-  // =====================================================
-  // LOADING
-  // =====================================================
-
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <p className="text-[#163A5F]">
-          Loading alerts...
-        </p>
-      </div>
-    );
-  }
-
-  // =====================================================
-  // ERROR
-  // =====================================================
-
-  if (error) {
-    return (
-      <div className="flex min-h-screen items-center justify-center px-6">
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-center">
-          <p className="font-medium text-red-600">
-            Failed to load alerts
-          </p>
-
-          <p className="mt-2 text-sm text-red-500">
-            {error}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  // =====================================================
-  // PAGE
-  // =====================================================
+  const sorted = [...ALERTS].sort((a, b) => new Date(b.issuedAt) - new Date(a.issuedAt));
 
   return (
-    <div
-      ref={ref}
-      className="mx-auto max-w-4xl px-6 py-10"
-    >
-      {/* =====================================================
-          HEADER
-      ===================================================== */}
-
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss-deep">
-        Alerts
-      </p>
-
-      <h1 className="mt-1 font-display text-3xl text-[#163A5F]">
-        Current disaster alerts
-      </h1>
-
+    <div ref={ref} className="mx-auto max-w-4xl px-6 py-10">
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss-deep">Alerts</p>
+      <h1 className="mt-1 font-display text-3xl text-[#163A5F]">Current and historical alerts</h1>
       <p className="mt-2 max-w-2xl text-sm text-ink/60">
-        Alerts are generated by the backend using
-        environmental observations and risk calculations.
-        Each alert provides the current risk level and a
-        recommended action.
+        Every alert explains which factors triggered it and what action is
+        recommended &mdash; never just a bare probability (G5 in the PRD).
       </p>
-
-      {/* =====================================================
-          SUMMARY
-      ===================================================== */}
-
-      <div className="mt-6 flex flex-wrap gap-3">
-        {['CRITICAL', 'HIGH', 'MODERATE'].map(
-          (level) => {
-            const count = counts[level];
-
-            const riskStyles = {
-              CRITICAL: {
-                backgroundColor: '#FEE2E2',
-                color: '#B91C1C',
-              },
-
-              HIGH: {
-                backgroundColor: '#FFEDD5',
-                color: '#C2410C',
-              },
-
-              MODERATE: {
-                backgroundColor: '#FEF3C7',
-                color: '#A16207',
-              },
-            };
-
-            const style =
-              riskStyles[level];
-
-            return (
-              <div
-                key={level}
-                className="flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium"
-                style={{
-                  backgroundColor:
-                    style.backgroundColor,
-                  color: style.color,
-                }}
-              >
-                <span
-                  className="h-2 w-2 rounded-full"
-                  style={{
-                    backgroundColor:
-                      style.color,
-                  }}
-                />
-
-                {level} · {count}
-              </div>
-            );
-          }
-        )}
-      </div>
-
-      {/* =====================================================
-          NO ALERTS
-      ===================================================== */}
-
-      {activeAlerts.length === 0 && (
-        <div className="mt-8 rounded-2xl border border-[#163A5F]/10 bg-white p-8 text-center shadow-sm">
-          <p className="font-display text-xl text-[#163A5F]">
-            No active alerts
-          </p>
-
-          <p className="mt-2 text-sm text-ink/55">
-            All monitored locations are currently
-            below the alert threshold.
-          </p>
-        </div>
-      )}
-
-      {/* =====================================================
-          ALERT CARDS
-      ===================================================== */}
 
       <div className="mt-8 space-y-4">
-        {activeAlerts.map((alert) => {
-          const probability =
-            Number(alert.probability || 0);
-
-          const probabilityPercentage =
-            Math.round(probability * 100);
-
+        {sorted.map((alert) => {
+          const loc = LOCATIONS.find((l) => l.id === alert.locationId);
+          const risk = classifyRisk(alert.level === 'CRITICAL' ? 90 : alert.level === 'HIGH' ? 65 : 40);
           return (
             <div
               key={alert.id}
               className="alert-card rounded-2xl border-l-4 bg-white p-6 shadow-sm"
-              style={{
-                borderColor:
-                  alert.risk_level === 'CRITICAL'
-                    ? '#B91C1C'
-                    : alert.risk_level === 'HIGH'
-                      ? '#C2410C'
-                      : '#A16207',
-              }}
+              style={{ borderColor: risk.color }}
             >
-              {/* =================================================
-                  TOP ROW
-              ================================================= */}
-
-              <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-3">
-                  <RiskBadge
-                    level={alert.risk_level}
-                  />
-
+                  <RiskBadge level={alert.level} />
                   <p className="text-xs text-ink/45">
-                    {alert.district ||
-                      alert.state ||
-                      'Unknown location'}
-                    {alert.state
-                      ? ` · ${alert.state}`
-                      : ''}
+                    {loc?.name} &middot; {new Date(alert.issuedAt).toLocaleString('en-IN')}
                   </p>
                 </div>
-
-                <Link
-                  to={`/location/${alert.location_id}`}
-                  className="text-xs font-medium text-moss-deep hover:underline"
-                >
-                  View location →
+                <Link to={`/location/${alert.locationId}`} className="text-xs font-medium text-moss-deep hover:underline">
+                  View location &rarr;
                 </Link>
               </div>
-
-              {/* =================================================
-                  HEADLINE
-              ================================================= */}
-
-              <p className="mt-3 font-display text-lg text-[#163A5F]">
-                {alert.message}
-              </p>
-
-              {/* =================================================
-                  RISK INFORMATION
-              ================================================= */}
-
+              <p className="mt-3 font-display text-lg text-[#163A5F]">{alert.headline}</p>
+              <p className="mt-1 text-sm text-ink/65">{alert.detail}</p>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="rounded-full bg-mist-deep px-3 py-1 font-mono text-[11px] text-ink/60">
-                  Risk probability:{' '}
-                  {probabilityPercentage}%
-                </span>
-
-                <span className="rounded-full bg-mist-deep px-3 py-1 font-mono text-[11px] text-ink/60">
-                  Sensor:{' '}
-                  {alert.sensor_id}
-                </span>
+                {alert.factors.map((f) => (
+                  <span key={f} className="rounded-full bg-mist-deep px-3 py-1 font-mono text-[11px] text-ink/60">
+                    {f}
+                  </span>
+                ))}
               </div>
-
-              {/* =================================================
-                  RECOMMENDED ACTION
-              ================================================= */}
-
               <p className="mt-3 text-sm">
-                <span className="font-medium text-[#163A5F]">
-                  Recommended action:{' '}
-                </span>
-
-                <span className="text-ink/70">
-                  {alert.recommended_action}
-                </span>
+                <span className="font-medium text-[#163A5F]">Recommended action: </span>
+                <span className="text-ink/70">{alert.recommendedAction}</span>
               </p>
-
-              {/* =================================================
-                  TIMESTAMP
-              ================================================= */}
-
-              {alert.timestamp && (
-                <p className="mt-4 text-[11px] text-ink/40">
-                  Alert updated{' '}
-                  {new Date(
-                    alert.timestamp
-                  ).toLocaleString('en-IN')}
-                </p>
-              )}
             </div>
           );
         })}
