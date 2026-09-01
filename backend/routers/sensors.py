@@ -31,8 +31,21 @@ router = APIRouter(
     response_model=SensorListResponse,
     summary="List all sensors",
 )
-def list_sensors():
-    sensors = get_all_sensors()
+def list_sensors(
+    location_id: str | None = Query(
+        default=None,
+        description="Filter sensors by location ID.",
+    ),
+    db: Session = Depends(get_db),
+):
+    sensors = get_all_sensors(db)
+
+    if location_id is not None:
+        sensors = [
+            sensor
+            for sensor in sensors
+            if sensor["location_id"] == location_id
+        ]
 
     return SensorListResponse(
         sensors=sensors,
@@ -47,8 +60,12 @@ def list_sensors():
 )
 def get_single_sensor(
     sensor_id: str,
+    db: Session = Depends(get_db),
 ):
-    sensor = get_sensor(sensor_id)
+    sensor = get_sensor(
+        sensor_id,
+        db,
+    )
 
     if sensor is None:
         raise HTTPException(
@@ -73,7 +90,10 @@ def get_readings(
     ),
     db: Session = Depends(get_db),
 ):
-    sensor = get_sensor(sensor_id)
+    sensor = get_sensor(
+        sensor_id,
+        db,
+    )
 
     if sensor is None:
         raise HTTPException(

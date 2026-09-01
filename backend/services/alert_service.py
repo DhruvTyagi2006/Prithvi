@@ -1,7 +1,7 @@
-from pathlib import Path
-
 import pandas as pd
+from sqlalchemy.orm import Session
 
+from backend.models.location import Location
 from backend.services.sensor_data_service import load_sensor_data
 
 
@@ -45,6 +45,7 @@ def safe_string(value) -> str | None:
 def classify_alert_risk(
     probability: float,
 ) -> str:
+
     if probability < 0.30:
         return "LOW"
 
@@ -173,8 +174,60 @@ def get_alert_message(
     )
 
 
+def find_nearest_location(
+    latitude: float | None,
+    longitude: float | None,
+    db: Session,
+) -> Location | None:
+    """
+    Find the closest Prithvi location to a sensor
+    using latitude and longitude.
+    """
+
+    if latitude is None or longitude is None:
+        return None
+
+    locations = (
+        db.query(Location)
+        .all()
+    )
+
+    if not locations:
+        return None
+
+    nearest_location = None
+    nearest_distance = float("inf")
+
+    for location in locations:
+
+        if (
+            location.latitude is None
+            or location.longitude is None
+        ):
+            continue
+
+        distance = (
+            (
+                float(location.latitude)
+                - float(latitude)
+            ) ** 2
+            +
+            (
+                float(location.longitude)
+                - float(longitude)
+            ) ** 2
+        )
+
+        if distance < nearest_distance:
+            nearest_distance = distance
+            nearest_location = location
+
+    return nearest_location
+
+
 def build_alert(
     row: dict,
+    db: Session,
 ) -> dict:
 
     sensor_id = safe_string(
@@ -187,6 +240,26 @@ def build_alert(
 
     district = safe_string(
         row.get("district")
+    )
+
+    latitude = safe_number(
+        row.get("latitude")
+    )
+
+    longitude = safe_number(
+        row.get("longitude")
+    )
+
+    nearest_location = find_nearest_location(
+        latitude=latitude,
+        longitude=longitude,
+        db=db,
+    )
+
+    location_id = (
+        str(nearest_location.id)
+        if nearest_location is not None
+        else None
     )
 
     probability = calculate_alert_probability(
@@ -215,7 +288,7 @@ def build_alert(
 
     return {
         "id": f"alert-{sensor_id}",
-        "location_id": sensor_id,
+        "location_id": location_id,
         "sensor_id": sensor_id,
         "state": state,
         "district": district,
@@ -234,7 +307,9 @@ def build_alert(
     }
 
 
-def get_all_alerts() -> list[dict]:
+def get_all_alerts(
+    db: Session,
+) -> list[dict]:
     """
     Generate alerts from the latest real observation
     for every sensor.
@@ -260,11 +335,16 @@ def get_all_alerts() -> list[dict]:
     alerts = []
 
     for _, row in latest.iterrows():
+
         alert = build_alert(
-            row.to_dict()
+            row.to_dict(),
+            db,
         )
 
-        alerts.append(alert)
+        # Only include alerts that successfully
+        # map to a Prithvi location.
+        if alert["location_id"] is not None:
+            alerts.append(alert)
 
     alerts.sort(
         key=lambda alert: alert["probability"],
@@ -276,9 +356,10 @@ def get_all_alerts() -> list[dict]:
 
 def get_alerts_for_location(
     location_id: str,
+    db: Session,
 ) -> list[dict]:
 
-    alerts = get_all_alerts()
+    alerts = get_all_alerts(db)
 
     location_id = str(location_id)
 
